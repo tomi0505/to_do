@@ -1,5 +1,5 @@
-import firstRender from './modules/example.js';
+// import xyz from './modules/';
 
 document.addEventListener("DOMContentLoaded", function() {
-	console.log(firstRender);
+	
 }, false);
