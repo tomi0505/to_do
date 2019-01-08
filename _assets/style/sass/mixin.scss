@@ -1,0 +1,26 @@
+@mixin rwd($getBreakpoint) {
+  @if map-has-key($breakpoints, $getBreakpoint) {
+    @media (max-width: #{map-get($breakpoints, $getBreakpoint)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: $getBreakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin flex($justify-content: center, $align-items: center) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin reset($tag) {
+  @if $tag == a {
+    text-decoration: none;
+  }
+}

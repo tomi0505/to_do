@@ -1,0 +1,19 @@
+@import 'var.scss';
+@import 'mixin.scss';
+@import 'settings.scss';
+@import 'helpers.scss';
+
+.header {
+	$height: 95vh;
+	height: $height;
+	background-image: linear-gradient(to right bottom, rgba(lightgreen, .8), rgba(black, .8)), url('https://images6.alphacoders.com/299/299818.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+	clip-path: polygon(750px 0, 100% 0, 94% $height, 0 100%);
+
+	h2 {
+		$bgc: pink;
+		background-color: $bgc;
+	}
+}
