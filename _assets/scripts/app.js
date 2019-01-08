@@ -1,4 +1,4 @@
-// import xyz from './modules/';
+// import xyz from './modules/xyz.js';
 
 document.addEventListener("DOMContentLoaded", function() {
 	
