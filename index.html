@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="_assets/style/normalize.css">
+    <link rel="stylesheet" href="_assets/style/reset.css">
     <link rel="stylesheet" href="_assets/icons/style.css">
     <link rel="stylesheet" href="_assets/style/style.css">
-    <title>test</title>
+    <title>to_do</title>
   </head>
   <body>
-
-  <script type="module" src="_assets/scripts/app.js"></script>
+    <div class="to-do">
+      <form class="to-do__form">
+        <input type="text" class="to-do__set-text">
+        <button type="button" class="to-do__add-btn">dodaj</button>
+      </form>
+      <ul class="to-do__tasks"></ul>
+    </div>
+    <script type="module" src="_assets/scripts/app.js"></script>
   </body>
 </html>
