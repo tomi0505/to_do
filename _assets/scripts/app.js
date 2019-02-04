@@ -3,7 +3,6 @@ import removeTask from './modules/removeTask.js';
 
 document.addEventListener("DOMContentLoaded", function() {
   const setText = document.querySelector('.to-do__set-text');
-	const addTextBtn = document.querySelector('.to-do__add-btn');
   const tasksContainer = document.querySelector('.to-do__tasks');
   
   setText.addEventListener('keyup', function(e) {
@@ -11,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
       setTaskContent();
     }
   }, false);
-
-  addTextBtn.addEventListener('click', setTaskContent, false);
 
   tasksContainer.addEventListener('click', function(e) {
     const recyle = e.target.classList.contains('remove-recyle');

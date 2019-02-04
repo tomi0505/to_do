@@ -3,32 +3,28 @@
 @import 'settings.scss';
 @import 'helpers.scss';
 
+body {
+  font-size: 1.6rem;
+}
+
 .to-do {
+  margin: 120px auto;
+  max-width: 650px;
+
+  &__form {
+    @include flex();
+  }
+
   &__set-text {
+    padding: 2px;
+    flex-grow: 1;
+    font-size: 1.6rem;
     @include reset(inputText);
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid $black;
   }
 
-  &__add-btn {
-    @include reset(button);
+  .task-item {
+    padding: 10px 0;
+    @include flex(space-between);
   }
-}
-
-
-
-.parent-red {
-  font-size: 10px;
-  width: 400px;
-  height: 500px;
-  background-color: yellow;
-  overflow: hidden;
-}
-
-.red {
-  margin: 4em;
-  // padding: 2em;
-  font-size: 2em; /*  20px*/
-  width: 1em;
-  height: 200px;
-  background-color: red;
 }
