@@ -7,6 +7,8 @@ const setTaskContent = function() {
   tasks.push(setText.value);
   setText.value = '';
 
+  console.log(tasks);
+
   addTask();
 }
 

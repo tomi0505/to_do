@@ -13,8 +13,6 @@ const addTask = function() {
   taskItem.classList.add('task-item');
   taskItem.innerHTML = liStringTemplate;
   tasksContainer.appendChild(taskItem);
-
-  removeTask();
 }
 
 export default addTask;

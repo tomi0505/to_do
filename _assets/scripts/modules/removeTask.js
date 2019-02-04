@@ -1,14 +1,15 @@
 import tasks from './tasks.js';
 
-const removeTask = function() {
-  let removeRecyle = document.querySelectorAll('.remove-recyle');
-  removeRecyle = [...removeRecyle];
+const removeTask = function(recyle) {
+  let taskItems = document.querySelectorAll('.task-item');
+  taskItems = [...taskItems];
 
-  removeRecyle.forEach((recyleItem)=> {
-    recyleItem.addEventListener('click', function() {
-      console.log(tasks);
-    }, false);
-  });
+  const removeTaskIndex = taskItems.indexOf(recyle.parentNode);
+
+  tasks.splice(removeTaskIndex, 1);
+  recyle.parentNode.parentNode.removeChild(recyle.parentNode);
+
+  console.log(tasks);
 }
 
 export default removeTask;

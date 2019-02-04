@@ -12,6 +12,12 @@
   }
 }
 
+@mixin absolute($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
 @mixin flex($justify-content: center, $align-items: center) {
   display: flex;
   flex-wrap: wrap;
@@ -22,5 +28,9 @@
 @mixin reset($tag) {
   @if $tag == a {
     text-decoration: none;
+  } @else if $tag == button {
+    border: none;
+  } @else if $tag == inputText {
+    border: none;
   }
 }
