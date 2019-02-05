@@ -4,27 +4,47 @@
 @import 'helpers.scss';
 
 body {
-  font-size: 1.6rem;
+  font-size: $base-font-size;
 }
 
 .to-do {
   margin: 120px auto;
   max-width: 650px;
 
-  &__form {
+  &__add-tasks-form {
+    margin-bottom: 13px;
     @include flex();
   }
 
-  &__set-text {
+  &__add-task-input {
     padding: 2px;
     flex-grow: 1;
-    font-size: 1.6rem;
+    font-size: $base-font-size;
+    caret-color: $primary-color;
     @include reset(inputText);
-    border-bottom: 1px solid $black;
+    border-bottom: 2px solid $primary-color;
   }
+}
 
-  .task-item {
+.tasks-container {
+  &__task-item {
+    margin: 3px 0;
     padding: 10px 0;
     @include flex(space-between);
+    background-color: $primary-color;
+  }
+
+  &__task-content {
+    margin: 0 3px;
+  }
+
+  &__remove-recyle {
+    margin: 0 3px;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
   }
 }

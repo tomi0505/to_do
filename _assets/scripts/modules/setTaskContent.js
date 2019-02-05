@@ -2,12 +2,10 @@ import tasks from './tasks.js';
 import addTask from './addTask.js';
 
 const setTaskContent = function() {
-  const setText = document.querySelector('.to-do__set-text');
+  const addTaskInput = document.querySelector('.to-do__add-task-input');
   
-  tasks.push(setText.value);
-  setText.value = '';
-
-  console.log(tasks);
+  tasks.push(addTaskInput.value);
+  addTaskInput.value = '';
 
   addTask();
 }

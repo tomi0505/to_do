@@ -9,5 +9,10 @@
 }
 
 body {
-  font-family: Verdana, sans-serif;
+  font-family: 'PT Sans Narrow', Verdana, sans-serif;
+}
+
+// NO INHERITANCE!??
+input, select, textarea, button {
+  font-family:inherit;
 }

@@ -2,19 +2,19 @@ import setTaskContent from './modules/setTaskContent.js';
 import removeTask from './modules/removeTask.js';
 
 document.addEventListener("DOMContentLoaded", function() {
-  const setText = document.querySelector('.to-do__set-text');
-  const tasksContainer = document.querySelector('.to-do__tasks');
+  const addTaskInput = document.querySelector('.to-do__add-task-input');
+  const tasksContainer = document.querySelector('.tasks-container');
   
-  setText.addEventListener('keyup', function(e) {
+  addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
       setTaskContent();
     }
   }, false);
 
   tasksContainer.addEventListener('click', function(e) {
-    const recyle = e.target.classList.contains('remove-recyle');
+    const removeTaskBtn = e.target.classList.contains('tasks-container__remove-recyle');
     
-    if(recyle) {
+    if(removeTaskBtn) {
       removeTask(e.target);
     }
   }, false);
