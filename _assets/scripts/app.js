@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }, false);
 
   tasksContainer.addEventListener('click', function(e) {
-    const removeTaskBtn = e.target.classList.contains('tasks-container__remove-recyle');
+    const removeTaskBtn = e.target.classList.contains('tasks-container__remove-task-item');
     
     if(removeTaskBtn) {
       removeTask(e.target);

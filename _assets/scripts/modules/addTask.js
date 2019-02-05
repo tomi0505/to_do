@@ -1,14 +1,21 @@
 import tasks from './tasks.js';
 import removeTask from './removeTask.js';
 
+let taskId = 0;
+
 const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
 
   const liStringTemplate = `
-    <span class="tasks-container__task-content">${tasks[tasks.length-1]}</span>
-    <i class="icon icon-cancel tasks-container__remove-recyle"></i>
+    <form class="tasks-container__task-content-container">
+      <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
+      <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
+    </form>
+    <span class="tasks-container__remove-task-item">&#10005;</span>
   `;
+
+  taskId++;
 
   taskItem.classList.add('tasks-container__task-item');
   taskItem.innerHTML = liStringTemplate;

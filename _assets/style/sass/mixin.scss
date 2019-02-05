@@ -25,12 +25,27 @@
   align-items: $align-items;
 }
 
+@mixin appearance() {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+
 @mixin reset($tag) {
   @if $tag == a {
-    text-decoration: none;
+      text-decoration: none;
   } @else if $tag == button {
-    border: none;
+      border: none;
   } @else if $tag == inputText {
-    border: none;
+      border: none;
+  } @else if $tag == checked {
+      @include appearance();
+      position: relative;
+      width: 15px;
+      height: 15px;
+      border: 1px solid $black;
+      border-radius: 2px;
+      background-color: transparent;
   }
 }

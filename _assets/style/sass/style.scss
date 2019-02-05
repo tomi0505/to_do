@@ -32,19 +32,64 @@ body {
     padding: 10px 0;
     @include flex(space-between);
     background-color: $primary-color;
-  }
-
-  &__task-content {
-    margin: 0 3px;
-  }
-
-  &__remove-recyle {
-    margin: 0 3px;
-    cursor: pointer;
-    transition: .2s;
 
     &:hover {
-      transform: rotate(180deg);
+      background-color: lighten($primary-color, 10);
+    }
+
+    &:hover > .tasks-container__remove-task-item {
+      display: block;
+    }
+  }
+
+  &__task-content-container {
+    margin: 0 3px;
+    @include flex();
+  }
+
+  &__task-checked-item {
+    margin: 0 8px 0 5px;
+    @include reset(checked);
+    width: 20px;
+    height: 20px;
+    transition: background-color .2s;
+
+    &::after {
+      content: '\e902';
+      margin-left: 1px;
+      @include absolute(50%, 50%);
+      display: none;
+      font-family: 'icomoon';
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover::after {
+      display: inline-block;
+    }
+
+    &:checked {
+      background-color: $black;
+    }
+
+    &:checked::after {
+      display: inline-block;
+      color: $primary-color;
+    }
+
+    &:checked + .tasks-container__task-text-item {
+      text-decoration: line-through;
+    }
+  }
+
+  &__remove-task-item {
+    margin: 0 5px;
+    display: none;
+    font-size: 1.4rem;
+    transition: transform .2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: rotate(90deg);
     }
   }
 }
