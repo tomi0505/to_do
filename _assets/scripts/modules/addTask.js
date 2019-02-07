@@ -1,7 +1,17 @@
 import tasks from './tasks.js';
 import removeTask from './removeTask.js';
+import { paginationData } from './paginationTasks.js';
 
 let taskId = 0;
+
+const counterItemTasks = (paginationData) => {
+  let tasksItem = document.querySelectorAll('.tasks-container__task-item');
+  tasksItem = [...tasksItem];
+
+  if(tasks.length > 5 * paginationData.pageNumber) {
+    tasksItem[tasks.length-1].classList.add('hidden');
+  }
+}
 
 const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
@@ -12,7 +22,7 @@ const addTask = function() {
       <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
       <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
     </form>
-    <span class="tasks-container__remove-task-item">&#10005;</span>
+    <span class="icon icon-dismiss tasks-container__remove-task-item"></span>
   `;
 
   taskId++;
@@ -20,6 +30,8 @@ const addTask = function() {
   taskItem.classList.add('tasks-container__task-item');
   taskItem.innerHTML = liStringTemplate;
   tasksContainer.appendChild(taskItem);
+
+  counterItemTasks(paginationData);
 }
 
 export default addTask;

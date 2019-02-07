@@ -24,6 +24,21 @@ body {
     @include reset(inputText);
     border-bottom: 2px solid $primary-color;
   }
+
+  &__pagination {
+    @include flex(flex-start);
+    font-size: 1.3rem;
+  }
+
+  &__page-number {
+    font-size: 1rem;
+  }
+
+  &__right-arrow-icon {
+    display: inline-block;
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
 }
 
 .tasks-container {
@@ -39,6 +54,10 @@ body {
 
     &:hover > .tasks-container__remove-task-item {
       display: block;
+    }
+
+    &.hidden {
+      display: none;
     }
   }
 
@@ -84,12 +103,12 @@ body {
   &__remove-task-item {
     margin: 0 5px;
     display: none;
-    font-size: 1.4rem;
-    transition: transform .2s;
+    // font-size: 1.4rem;
+    // transition: transform .2s;
     cursor: pointer;
 
     &:hover {
-      transform: rotate(90deg);
+      // transform: rotate(90deg);
     }
   }
 }
