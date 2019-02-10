@@ -1,6 +1,7 @@
 import setTaskContent from './modules/setTaskContent.js';
 import removeTask from './modules/removeTask.js';
-import paginationTasks from './modules/paginationTasks.js';
+import paginationTasksToRight from './modules/paginationTasks.js';
+import { paginationTasksToLeft } from './modules/paginationTasks.js';
 
 document.addEventListener("DOMContentLoaded", function() {
   const addTaskInput = document.querySelector('.to-do__add-task-input');
@@ -23,5 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, false);
 
-  rightPagesIcon.addEventListener('click', paginationTasks, false);
+  rightPagesIcon.addEventListener('click', paginationTasksToRight, false);
+  leftPagesIcon.addEventListener('click', paginationTasksToLeft, false);
 }, false);

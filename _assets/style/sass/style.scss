@@ -5,6 +5,7 @@
 
 body {
   font-size: $base-font-size;
+  background-color: #c08b5c;
 }
 
 .to-do {
@@ -20,22 +21,42 @@ body {
     padding: 2px;
     flex-grow: 1;
     font-size: $base-font-size;
-    caret-color: $primary-color;
+    letter-spacing: 1px;
+    caret-color: rgba($primary-color, .4);
     @include reset(inputText);
-    border-bottom: 2px solid $primary-color;
+    border-bottom: 1px solid rgba($primary-color, .4);
+    background-color: #c08b5c;
+  }
+
+  &__settings-panel {
+    margin-bottom: 13px;
+    @include flex(flex-start);
   }
 
   &__pagination {
     @include flex(flex-start);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    border-radius: 30px;
   }
 
   &__page-number {
+    margin: 0 3px;
     font-size: 1rem;
   }
 
+  &__right-arrow-icon,
+  &__left-arrow-icon {
+    margin: 3px;
+    @include flex();
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+      border-radius: 30px;
+    }
+  }
+
   &__right-arrow-icon {
-    display: inline-block;
     transform: rotate(180deg);
     cursor: pointer;
   }
@@ -46,6 +67,8 @@ body {
     margin: 3px 0;
     padding: 10px 0;
     @include flex(space-between);
+    letter-spacing: 1px;
+    border-radius: 5px;
     background-color: $primary-color;
 
     &:hover {
@@ -69,13 +92,12 @@ body {
   &__task-checked-item {
     margin: 0 8px 0 5px;
     @include reset(checked);
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     transition: background-color .2s;
 
     &::after {
       content: '\e902';
-      margin-left: 1px;
       @include absolute(50%, 50%);
       display: none;
       font-family: 'icomoon';
@@ -103,12 +125,7 @@ body {
   &__remove-task-item {
     margin: 0 5px;
     display: none;
-    // font-size: 1.4rem;
-    // transition: transform .2s;
+    font-size: 1.3rem;
     cursor: pointer;
-
-    &:hover {
-      // transform: rotate(90deg);
-    }
   }
 }

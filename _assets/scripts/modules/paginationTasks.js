@@ -1,27 +1,54 @@
 import tasks from './tasks.js';
 
-let elementsOnPage;
-let pageCounter = tasks.length / 5;
-
 const paginationData = {
-  pageNumber: 1
+  pageNumber: 1,
+  itemsOnPage: 5
 }
 
-const paginationTasks = () => {
+let pageCounter = tasks.length / paginationData.itemsOnPage;
+
+const updatePageNumber = () => {
+  const pageNumber = document.querySelector('.to-do__page-number');
+  pageNumber.innerHTML = paginationData.pageNumber;
+}
+
+const paginationTasksToLeft = () => {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
   tasksItem = [...tasksItem];
 
-  if(tasks.length > 5*paginationData.pageNumber) {
-    tasksItem.forEach((task, index)=> {
+  if(paginationData.pageNumber > 1) {
+    tasksItem.forEach((task, index) => {
       task.classList.add('hidden');
-      if(index+1 > 5*paginationData.pageNumber && index+1 <= 5*(paginationData.pageNumber+1)) {
+      if(index < paginationData.itemsOnPage*(paginationData.pageNumber-1) && index >= (paginationData.itemsOnPage*(paginationData.pageNumber-1))-paginationData.itemsOnPage) {
+        
+        task.classList.remove('hidden');
+      }
+    });
+
+    --paginationData.pageNumber;
+  }
+
+  updatePageNumber();
+}
+
+const paginationTasksToRight = () => {
+  let tasksItem = document.querySelectorAll('.tasks-container__task-item');
+  tasksItem = [...tasksItem];
+
+  if(tasks.length > paginationData.itemsOnPage*paginationData.pageNumber) {
+    tasksItem.forEach((task, index) => {
+      task.classList.add('hidden');
+      if(index+1 > paginationData.itemsOnPage*paginationData.pageNumber && index+1 <= paginationData.itemsOnPage*(paginationData.pageNumber+1)) {
         task.classList.remove('hidden');
       }
     });
 
     ++paginationData.pageNumber;
   }
+
+  updatePageNumber();
 }
 
-export default paginationTasks;
 export { paginationData };
+export default paginationTasksToRight;
+export { paginationTasksToLeft };

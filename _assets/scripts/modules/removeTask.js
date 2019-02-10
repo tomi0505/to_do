@@ -1,4 +1,19 @@
 import tasks from './tasks.js';
+import { paginationData } from './paginationTasks.js';
+import { paginationTasksToLeft } from './paginationTasks.js';
+
+const updateTasksOnPage = function(removeTaskIndex) {
+  let tasksItem = document.querySelectorAll('.tasks-container__task-item');
+  tasksItem = [...tasksItem];
+
+  if(tasksItem[paginationData.pageNumber*paginationData.itemsOnPage-1] !== undefined) {
+    tasksItem[paginationData.pageNumber*paginationData.itemsOnPage-1].classList.remove('hidden');
+  }
+
+  if(tasksItem[removeTaskIndex-1] !== undefined && tasksItem[removeTaskIndex-1].classList.contains('hidden') && tasksItem[removeTaskIndex] === undefined) {
+    paginationTasksToLeft();
+  }
+}
 
 const removeTask = function(removeTaskBtn) {
   let taskItems = document.querySelectorAll('.tasks-container__task-item');
@@ -8,6 +23,8 @@ const removeTask = function(removeTaskBtn) {
 
   tasks.splice(removeTaskIndex, 1);
   removeTaskBtn.parentNode.parentNode.removeChild(removeTaskBtn.parentNode);
+
+  updateTasksOnPage(removeTaskIndex);
 }
 
 export default removeTask;

@@ -8,7 +8,7 @@ const counterItemTasks = (paginationData) => {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
   tasksItem = [...tasksItem];
 
-  if(tasks.length > 5 * paginationData.pageNumber) {
+  if(tasks.length > paginationData.itemsOnPage * paginationData.pageNumber) {
     tasksItem[tasks.length-1].classList.add('hidden');
   }
 }
@@ -22,7 +22,7 @@ const addTask = function() {
       <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
       <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
     </form>
-    <span class="icon icon-dismiss tasks-container__remove-task-item"></span>
+    <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
   `;
 
   taskId++;
