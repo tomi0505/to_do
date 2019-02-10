@@ -8,8 +8,16 @@ const counterItemTasks = (paginationData) => {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
   tasksItem = [...tasksItem];
 
-  if(tasks.length > paginationData.itemsOnPage * paginationData.pageNumber) {
-    tasksItem[tasks.length-1].classList.add('hidden');
+  console.log('tasks.length: ', tasks.length, 'paginationData.itemsOnPage: ', paginationData.itemsOnPage, 'paginationData.pageNumber: ', paginationData.pageNumber);
+
+  console.log('tasksItem[tasks.length-1]: ', tasksItem[tasks.length-1]);
+
+  if(tasks.length-1 > (paginationData.itemsOnPage * paginationData.pageNumber)-1) {
+    tasksItem.forEach((task, index)=> {
+      if(index > (paginationData.itemsOnPage * paginationData.pageNumber)-1) {
+        task.classList.add('hidden');
+      }
+    });
   }
 }
 
@@ -29,7 +37,7 @@ const addTask = function() {
 
   taskItem.classList.add('tasks-container__task-item');
   taskItem.innerHTML = liStringTemplate;
-  tasksContainer.appendChild(taskItem);
+  tasksContainer.prepend(taskItem);
 
   counterItemTasks(paginationData);
 }
