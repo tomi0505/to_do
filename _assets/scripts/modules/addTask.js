@@ -8,10 +8,6 @@ const counterItemTasks = (paginationData) => {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
   tasksItem = [...tasksItem];
 
-  console.log('tasks.length: ', tasks.length, 'paginationData.itemsOnPage: ', paginationData.itemsOnPage, 'paginationData.pageNumber: ', paginationData.pageNumber);
-
-  console.log('tasksItem[tasks.length-1]: ', tasksItem[tasks.length-1]);
-
   if(tasks.length-1 > (paginationData.itemsOnPage * paginationData.pageNumber)-1) {
     tasksItem.forEach((task, index)=> {
       if(index > (paginationData.itemsOnPage * paginationData.pageNumber)-1) {
@@ -24,6 +20,7 @@ const counterItemTasks = (paginationData) => {
 const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
+  const infoPanel = document.querySelector('.to-do__info-panel');
 
   const liStringTemplate = `
     <form class="tasks-container__task-content-container">
@@ -40,6 +37,8 @@ const addTask = function() {
   tasksContainer.prepend(taskItem);
 
   counterItemTasks(paginationData);
+
+  infoPanel.classList.add('visible');
 }
 
 export default addTask;

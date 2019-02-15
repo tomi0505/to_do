@@ -39,6 +39,7 @@
       border: none;
   } @else if $tag == inputText {
       border: none;
+      background-color: transparent;
   } @else if $tag == checked {
       @include appearance();
       position: relative;

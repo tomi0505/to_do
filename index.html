@@ -20,8 +20,22 @@
           <span class="to-do__page-number">1</span>
           <span class="icon icon-keyboard_arrow_left to-do__right-arrow-icon"></span>
         </div>
+        <div class="to-do__filtering">
+          <form action="#" class="to-do__filtering-form">
+            <label for="to-do__filtering-input" class="to-do__filtering-input-label">
+              <span class="icon icon-search1"></span>
+            </label>
+            <input type="text" class="to-do__filtering-input" id="to-do__filtering-input">
+          </form>
+        </div>
       </div>
       <ul class="tasks-container"></ul>
+      <section class="to-do__info-panel">
+        <aside class="last-visited-page-alert">
+          <p class="last-visited-page-alert__content">Ostatnio odwiedziłeś stronę <span class="last-visited-page-alert__page-number"></span> <span class="last-visited-page-alert__return-link">Powrót</span></p>
+        </aside>
+        <span class="to-do__tasks-length">0</span>
+      </section>
     </div>
     <script type="module" src="_assets/scripts/app.js"></script>
   </body>
