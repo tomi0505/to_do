@@ -1,10 +1,16 @@
 import tasks from './tasks.js';
 import removeTask from './removeTask.js';
 import { paginationData } from './paginationTasks.js';
+import increasePagesLength from './updatePagesLength.js';
 
 let taskId = 0;
 
-const counterItemTasks = (paginationData) => {
+const updateTasksLengthCounter = () => {
+  const tasksLengthEl = document.querySelector('.to-do__tasks-length');
+  tasksLengthEl.innerHTML = tasks.length;
+}
+
+const counterItemTasks = paginationData => {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
   tasksItem = [...tasksItem];
 
@@ -39,6 +45,13 @@ const addTask = function() {
   counterItemTasks(paginationData);
 
   infoPanel.classList.add('visible');
+  updateTasksLengthCounter();
+
+  // UPDATE PAGES LENGTH
+  if(tasks.length % paginationData.itemsOnPage === 1) {
+    increasePagesLength();
+  }
 }
 
 export default addTask;
+export { updateTasksLengthCounter };

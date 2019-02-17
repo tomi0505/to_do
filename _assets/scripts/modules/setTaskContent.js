@@ -5,6 +5,16 @@ import { paginationTasksToLeft } from './paginationTasks.js';
 
 let lastVisitedPage;
 
+const showPageAlertDiv = () => {
+  const pageAlertDiv = document.querySelector('.last-visited-page-alert');
+  pageAlertDiv.classList.add('visible');
+
+  const hidePageAlertDiv = setTimeout(()=> {
+    pageAlertDiv.classList.remove('visible');
+  }, 10000);
+  //WILL ADD THE CLEAR INTERVAL AFTER CLICK RETURN LINK!! 
+}
+
 const generateLastPageNumber = () => {
   const pageNumberEl = document.querySelector('.last-visited-page-alert__page-number');
 
@@ -13,7 +23,6 @@ const generateLastPageNumber = () => {
 
 const setTaskContent = function() {
   const addTaskInput = document.querySelector('.to-do__add-task-input');
-  const pageAlertDiv = document.querySelector('.last-visited-page-alert');
   
   tasks.push(addTaskInput.value.trim());
   addTaskInput.value = '';
@@ -24,8 +33,9 @@ const setTaskContent = function() {
   if(paginationData.pageNumber > 1) {
     for(let i = 0; i < lastVisitedPage; i++) {
       paginationTasksToLeft();
-      pageAlertDiv.classList.add('visible');
     }
+
+    showPageAlertDiv();
     generateLastPageNumber();
   }
 

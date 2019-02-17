@@ -25,6 +25,16 @@
   align-items: $align-items;
 }
 
+@mixin circle($width: 20px) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  text-align: center;
+  line-height: $width;
+  border-radius: 50%;
+  background-color: $white;
+}
+
 @mixin appearance() {
   appearance: none;
   -webkit-appearance: none;

@@ -31,24 +31,21 @@ body {
   &__settings-panel {
     margin-bottom: 13px;
     @include flex(flex-start);
+    font-size: 1rem;
+
+    .icon {
+      font-size: 1.5rem;
+    }
   }
 
   &__pagination {
     @include flex(flex-start);
     flex-wrap: nowrap;
-    font-size: 1.5rem;
     border-radius: 30px;
-  }
-
-  &__page-number {
-    margin: 0 3px;
-    font-size: 1rem;
   }
 
   &__right-arrow-icon,
   &__left-arrow-icon {
-    margin: 3px;
-
     &:hover {
       border-radius: 30px;
     }
@@ -63,11 +60,19 @@ body {
     cursor: pointer;
   }
 
+  &__filtering {
+    margin: 0 $LR-margin-inside-settings-panel 0 auto;
+  }
+
   &__filtering-form {
     @include flex();
   }
 
   &__filtering-input-label {
+    .icon.icon-search1 {
+      font-size: 1.4rem;
+    }
+
     &.active + .to-do__filtering-input {
       width: 120px;
       opacity: 1;
@@ -83,6 +88,10 @@ body {
     border-bottom: 1px solid rgba($primary-color, .4);
     transition: width .2s, opacity .2s;
     opacity: 0;
+  }
+
+  &__tasks-length {
+    margin: 0 $LR-margin-inside-settings-panel;
   }
 
   &__info-panel {
@@ -182,13 +191,7 @@ body {
   }
 
   &__page-number {
-    display: inline-block;
-    width: 21px;
-    height: 21px;
-    text-align: center;
-    line-height: 21px;
-    border-radius: 50%;
-    background-color: $white;
+    @include circle(21px);
   }
 
   &__return-link {

@@ -1,6 +1,8 @@
 import tasks from './tasks.js';
 import { paginationData } from './paginationTasks.js';
 import { paginationTasksToLeft } from './paginationTasks.js';
+import { updateTasksLengthCounter } from './addTask.js';
+import { decreasePagesLength } from './updatePagesLength.js';
 
 const updateTasksOnPage = function(removeTaskIndex) {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
@@ -24,7 +26,13 @@ const removeTask = function(removeTaskBtn) {
   tasks.splice(removeTaskIndex, 1);
   removeTaskBtn.parentNode.parentNode.removeChild(removeTaskBtn.parentNode);
 
+  updateTasksLengthCounter();
   updateTasksOnPage(removeTaskIndex);
+
+  // UPDATE PAGES LENGTH
+  if(tasks.length % paginationData.itemsOnPage === 0) {
+    decreasePagesLength();
+  }
 }
 
 export default removeTask;
