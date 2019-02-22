@@ -52,3 +52,4 @@ const paginationTasksToRight = () => {
 export { paginationData };
 export default paginationTasksToRight;
 export { paginationTasksToLeft };
+export { updatePageNumber };

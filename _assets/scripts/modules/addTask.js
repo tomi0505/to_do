@@ -2,8 +2,10 @@ import tasks from './tasks.js';
 import removeTask from './removeTask.js';
 import { paginationData } from './paginationTasks.js';
 import increasePagesLength from './updatePagesLength.js';
+import { updatePageNumber } from './paginationTasks.js';
 
 let taskId = 0;
+let firstUpdatePageNumber = true;
 
 const updateTasksLengthCounter = () => {
   const tasksLengthEl = document.querySelector('.to-do__tasks-length');
@@ -41,6 +43,11 @@ const addTask = function() {
   taskItem.classList.add('tasks-container__task-item');
   taskItem.innerHTML = liStringTemplate;
   tasksContainer.prepend(taskItem);
+
+  if(firstUpdatePageNumber) {
+    updatePageNumber();
+    firstUpdatePageNumber = false;
+  }
 
   counterItemTasks(paginationData);
 

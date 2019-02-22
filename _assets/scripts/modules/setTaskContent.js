@@ -4,15 +4,15 @@ import { paginationData } from './paginationTasks.js';
 import { paginationTasksToLeft } from './paginationTasks.js';
 
 let lastVisitedPage;
+let hidePageAlertDiv;
 
 const showPageAlertDiv = () => {
   const pageAlertDiv = document.querySelector('.last-visited-page-alert');
   pageAlertDiv.classList.add('visible');
 
-  const hidePageAlertDiv = setTimeout(()=> {
+  hidePageAlertDiv = setTimeout(()=> {
     pageAlertDiv.classList.remove('visible');
   }, 10000);
-  //WILL ADD THE CLEAR INTERVAL AFTER CLICK RETURN LINK!! 
 }
 
 const generateLastPageNumber = () => {
@@ -44,3 +44,4 @@ const setTaskContent = function() {
 
 export default setTaskContent;
 export { lastVisitedPage };
+export { hidePageAlertDiv };

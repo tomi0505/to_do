@@ -3,6 +3,7 @@ import { paginationData } from './paginationTasks.js';
 import paginationTasksToRight from './paginationTasks.js';
 import { lastVisitedPage } from './setTaskContent.js';
 import generateLastPageNumber from './setTaskContent.js';
+import { hidePageAlertDiv } from './setTaskContent.js';
 
 const returnToSavedTheLastPage = function() {
   const pageAlertDiv = document.querySelector('.last-visited-page-alert');
@@ -13,6 +14,7 @@ const returnToSavedTheLastPage = function() {
     }
 
     pageAlertDiv.classList.remove('visible');
+    clearTimeout(hidePageAlertDiv);
   }
 }
 
