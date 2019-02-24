@@ -72,11 +72,6 @@ body {
     .icon.icon-search1 {
       font-size: 1.4rem;
     }
-
-    &.active + .to-do__filtering-input {
-      width: 120px;
-      opacity: 1;
-    }
   }
 
   &__filtering-input {
@@ -88,6 +83,11 @@ body {
     border-bottom: 1px solid rgba($primary-color, .4);
     transition: width .2s, opacity .2s;
     opacity: 0;
+
+    &.active {
+      width: 120px;
+      opacity: 1;
+    }
   }
 
   &__tasks-length {
@@ -95,13 +95,49 @@ body {
   }
 
   &__info-panel {
-    padding: 0 5px;
     margin-top: 10px;
-    display: none;
+    // display: none;
+    @include flex(space-between);
     font-size: 1rem;
 
     &.visible {
       @include flex(space-between);
+    }
+  }
+
+  &__select-tasks-panel {
+    margin: 0 5px;
+    padding-left: 5px;
+    padding-right: 1.4rem;
+    @include reset(select);
+    font-size: 1rem;
+    border-radius: 2px;
+    background-image: url(../img/icons/arrow_down.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 1.4rem;
+    background-color: #c0bd5c;
+  }
+
+  &__select-default-label {
+    display: none;
+  }
+
+  &__remove-selected-tasks-btn {
+    @include reset(button);
+    max-width: 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: max-width .5s;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.visible {
+      max-width: 95px;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
@@ -183,6 +219,7 @@ body {
   overflow: hidden;
 
   &.visible {
+    margin: 0 5px;
     max-width: 228px;
   }
 

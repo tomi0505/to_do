@@ -4,6 +4,9 @@ import paginationTasksToRight from './modules/paginationTasks.js';
 import { paginationTasksToLeft } from './modules/paginationTasks.js';
 import filteringTasksList from './modules/filteringTasksList.js';
 import returnToSavedTheLastPage from './modules/returnToSavedTheLastPage.js';
+import selectTasks from './modules/selectTasks.js';
+import { showSelectedTasksBtn } from './modules/selectTasks.js';
+import { selectedTasksLength } from './modules/selectTasks.js';
 
 document.addEventListener("DOMContentLoaded", function() {
   const addTaskInput = document.querySelector('.to-do__add-task-input');
@@ -16,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const filteringInput = document.querySelector('.to-do__filtering-input');
   
   const savedLastPageLink = document.querySelector('.last-visited-page-alert__return-link');
+
+  const selectTasksPanel = document.querySelector('.to-do__select-tasks-panel');
   
   addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
@@ -25,9 +30,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
   tasksContainer.addEventListener('click', function(e) {
     const removeTaskBtn = e.target.classList.contains('tasks-container__remove-task-item');
+
+    const checkboxItem = e.target.classList.contains('tasks-container__task-checked-item');
     
     if(removeTaskBtn) {
       removeTask(e.target);
+    }
+
+    if(checkboxItem) {
+      showSelectedTasksBtn();
+      selectedTasksLength();
     }
   }, false);
 
@@ -44,12 +56,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }, false);
 
   // FILTERING
-  filteringInputLabel.addEventListener('click', function() {
-    this.classList.toggle('active');
+  document.addEventListener('click', function(e) {
+    if(e.target.classList[0] === 'to-do__filtering-input') {
+      filteringInput.classList.add('active');
+    } else {
+      filteringInput.classList.remove('active');
+    }
   }, false);
 
   filteringInput.addEventListener('keyup', filteringTasksList, false);
 
   // RETURN TO SAVED LAST PAGE
   savedLastPageLink.addEventListener('click', returnToSavedTheLastPage, false);
+
+  // SELECT TASKS PANEL
+  selectTasksPanel.addEventListener('change', selectTasks, false);
 }, false);

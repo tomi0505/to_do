@@ -47,6 +47,7 @@
       text-decoration: none;
   } @else if $tag == button {
       border: none;
+      background-color: transparent;
   } @else if $tag == inputText {
       border: none;
       background-color: transparent;
@@ -57,6 +58,10 @@
       height: 15px;
       border: 1px solid $black;
       border-radius: 2px;
+      background-color: transparent;
+  } @else if $tag == select {
+      @include appearance();
+      border: none;
       background-color: transparent;
   }
 }
