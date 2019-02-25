@@ -3,6 +3,7 @@ import { paginationData } from './paginationTasks.js';
 import { paginationTasksToLeft } from './paginationTasks.js';
 import { updateTasksLengthCounter } from './addTask.js';
 import { decreasePagesLength } from './updatePagesLength.js';
+import { showInfoPanel } from './addTask.js';
 
 const updateTasksOnPage = function(removeTaskIndex) {
   let tasksItem = document.querySelectorAll('.tasks-container__task-item');
@@ -28,6 +29,8 @@ const removeTask = function(removeTaskBtn) {
 
   updateTasksLengthCounter();
   updateTasksOnPage(removeTaskIndex);
+
+  tasks.length < 1? showInfoPanel() : null;
 
   // UPDATE PAGES LENGTH
   if(tasks.length % paginationData.itemsOnPage === 0) {

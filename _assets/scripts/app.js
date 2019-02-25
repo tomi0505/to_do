@@ -5,7 +5,7 @@ import { paginationTasksToLeft } from './modules/paginationTasks.js';
 import filteringTasksList from './modules/filteringTasksList.js';
 import returnToSavedTheLastPage from './modules/returnToSavedTheLastPage.js';
 import selectTasks from './modules/selectTasks.js';
-import { showSelectedTasksBtn } from './modules/selectTasks.js';
+import { showSelectedTasksOperationPanel } from './modules/selectTasks.js';
 import { selectedTasksLength } from './modules/selectTasks.js';
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if(checkboxItem) {
-      showSelectedTasksBtn();
+      showSelectedTasksOperationPanel();
       selectedTasksLength();
     }
   }, false);

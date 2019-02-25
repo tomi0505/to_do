@@ -96,8 +96,7 @@ body {
 
   &__info-panel {
     margin-top: 10px;
-    // display: none;
-    @include flex(space-between);
+    display: none;
     font-size: 1rem;
 
     &.visible {
@@ -123,18 +122,26 @@ body {
     display: none;
   }
 
-  &__remove-selected-tasks-btn {
-    @include reset(button);
+  &__task-operation {
+    @include flex();
+  }
+
+  &__selected-tasks-operation-panel {
+    display: inline-block;
     max-width: 0;
-    font-size: 1rem;
     white-space: nowrap;
     transition: max-width .5s;
     overflow: hidden;
-    cursor: pointer;
 
     &.visible {
-      max-width: 95px;
+      max-width: 105px;
     }
+  }
+
+  &__remove-selected-tasks-btn {
+    @include reset(button);
+    font-size: 1rem;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;

@@ -28,7 +28,9 @@ const setTaskContent = function() {
   addTaskInput.value = '';
 
   // SAVE CURRENT PAGE NUMBER
-  lastVisitedPage = paginationData.pageNumber;
+  if(paginationData.pageNumber > 1) {
+    lastVisitedPage = paginationData.pageNumber;
+  }
 
   if(paginationData.pageNumber > 1) {
     for(let i = 0; i < lastVisitedPage; i++) {

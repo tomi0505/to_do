@@ -25,10 +25,14 @@ const counterItemTasks = paginationData => {
   }
 }
 
+const showInfoPanel = () => {
+  const infoPanel = document.querySelector('.to-do__info-panel');
+  infoPanel.classList.toggle('visible');
+}
+
 const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
-  const infoPanel = document.querySelector('.to-do__info-panel');
 
   const liStringTemplate = `
     <form class="tasks-container__task-content-container">
@@ -51,7 +55,7 @@ const addTask = function() {
 
   counterItemTasks(paginationData);
 
-  infoPanel.classList.add('visible');
+  tasks.length <= 1? showInfoPanel() : null;
   updateTasksLengthCounter();
 
   // UPDATE PAGES LENGTH
@@ -62,3 +66,4 @@ const addTask = function() {
 
 export default addTask;
 export { updateTasksLengthCounter };
+export { showInfoPanel };

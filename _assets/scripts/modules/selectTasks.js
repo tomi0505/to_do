@@ -25,12 +25,12 @@ const selectedTasksInfo = function() {
   return selectedTasks;
 }
 
-const showSelectedTasksBtn = () => {
-  const removeSelectedTasksBtn = document.querySelector('.to-do__remove-selected-tasks-btn');
+const showSelectedTasksOperationPanel = () => {
+  const selectedTasksOperationPanelEl = document.querySelector('.to-do__selected-tasks-operation-panel');
 
   const selectedTasks = selectedTasksInfo();
 
-  selectedTasks.selected? removeSelectedTasksBtn.classList.add('visible') : removeSelectedTasksBtn.classList.remove('visible');
+  selectedTasks.selected? selectedTasksOperationPanelEl.classList.add('visible') : selectedTasksOperationPanelEl.classList.remove('visible');
 }
 
 const selectTasks = function(e) {
@@ -70,11 +70,11 @@ const selectTasks = function(e) {
     }
 
     this.selectedIndex = 0;
-    showSelectedTasksBtn();
+    showSelectedTasksOperationPanel();
     selectedTasksLength();
   }
 }
 
 export default selectTasks;
-export { showSelectedTasksBtn };
+export { showSelectedTasksOperationPanel };
 export { selectedTasksLength };
