@@ -13,4 +13,4 @@ const decreasePagesLength = () => {
 }
 
 export default increasePagesLength;
-export { decreasePagesLength }
+export { decreasePagesLength };

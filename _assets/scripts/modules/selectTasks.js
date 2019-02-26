@@ -78,3 +78,4 @@ const selectTasks = function(e) {
 export default selectTasks;
 export { showSelectedTasksOperationPanel };
 export { selectedTasksLength };
+export { selectedTasks };

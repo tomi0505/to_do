@@ -30,6 +30,11 @@ const showInfoPanel = () => {
   infoPanel.classList.toggle('visible');
 }
 
+const showSettingsPanel = () => {
+  const settingsPanel = document.querySelector('.to-do__settings-panel');
+  settingsPanel.classList.toggle('visible');
+}
+
 const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
@@ -55,7 +60,11 @@ const addTask = function() {
 
   counterItemTasks(paginationData);
 
-  tasks.length <= 1? showInfoPanel() : null;
+  if(tasks.length <= 1) {
+    showInfoPanel(); 
+    showSettingsPanel();
+  }
+
   updateTasksLengthCounter();
 
   // UPDATE PAGES LENGTH
@@ -66,4 +75,4 @@ const addTask = function() {
 
 export default addTask;
 export { updateTasksLengthCounter };
-export { showInfoPanel };
+export { showInfoPanel, showSettingsPanel };

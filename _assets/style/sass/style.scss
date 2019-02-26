@@ -24,14 +24,21 @@ body {
     letter-spacing: 1px;
     caret-color: rgba($primary-color, .4);
     @include reset(inputText);
-    border-bottom: 1px solid rgba($primary-color, .4);
-    background-color: #c08b5c;
+    border-bottom: 1px solid rgba($black, .2);
+
+    &::placeholder {
+      color: rgba($black, .3);
+    }
   }
 
   &__settings-panel {
     margin-bottom: 13px;
-    @include flex(flex-start);
+    display: none;
     font-size: 1rem;
+
+    &.visible {
+      @include flex(flex-start);
+    }
 
     .icon {
       font-size: 1.5rem;
@@ -80,7 +87,8 @@ body {
     width: 0;
     font-size: 1rem;
     letter-spacing: 1px;
-    border-bottom: 1px solid rgba($primary-color, .4);
+    caret-color: rgba($primary-color, .4);
+    border-bottom: 1px solid rgba($black, .2);
     transition: width .2s, opacity .2s;
     opacity: 0;
 
@@ -123,18 +131,20 @@ body {
   }
 
   &__task-operation {
-    @include flex();
+    @include flex(flex-end);
   }
 
   &__selected-tasks-operation-panel {
     display: inline-block;
+    min-width: 0;
     max-width: 0;
     white-space: nowrap;
     transition: max-width .5s;
     overflow: hidden;
 
     &.visible {
-      max-width: 105px;
+      min-width: 105px;
+      max-width: 100%;
     }
   }
 
