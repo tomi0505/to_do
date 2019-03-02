@@ -27,7 +27,7 @@ body {
     border-bottom: 1px solid rgba($black, .2);
 
     &::placeholder {
-      color: rgba($black, .3);
+      color: rgba($black, .2);
     }
   }
 
@@ -53,6 +53,8 @@ body {
 
   &__right-arrow-icon,
   &__left-arrow-icon {
+    cursor: pointer;
+
     &:hover {
       border-radius: 30px;
     }
@@ -63,12 +65,10 @@ body {
       display: inline-block;
       transform: rotate(180deg) translateY(1px);
     }
-
-    cursor: pointer;
   }
 
   &__filtering {
-    margin: 0 $LR-margin-inside-settings-panel 0 auto;
+    margin: 0 $LR-margin-inside-settings-panel;
   }
 
   &__filtering-form {
@@ -78,6 +78,7 @@ body {
   &__filtering-input-label {
     .icon.icon-search1 {
       font-size: 1.4rem;
+      cursor: pointer;
     }
   }
 
@@ -99,7 +100,7 @@ body {
   }
 
   &__tasks-length {
-    margin: 0 $LR-margin-inside-settings-panel;
+    margin: 0 auto 0 $LR-margin-inside-settings-panel;
   }
 
   &__info-panel {
@@ -124,6 +125,7 @@ body {
     background-position: right;
     background-size: 1.4rem;
     background-color: #c0bd5c;
+    cursor: pointer;
   }
 
   &__select-default-label {
@@ -156,6 +158,13 @@ body {
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &__sorting-tasks-btn {
+    margin: 0 $LR-margin-inside-settings-panel;
+    @include reset(button);
+    font-size: 1rem;
+    cursor: pointer;
   }
 }
 
@@ -192,6 +201,7 @@ body {
     width: 19px;
     height: 19px;
     transition: background-color .2s;
+    cursor: pointer;
 
     &::after {
       content: '\e902';
@@ -217,6 +227,10 @@ body {
     &:checked + .tasks-container__task-text-item {
       text-decoration: line-through;
     }
+  }
+
+  &__task-text-item {
+    cursor: pointer;
   }
 
   &__remove-task-item {
