@@ -47,24 +47,20 @@ const selectTasks = function(e) {
       for(let checkbox of checkboxItem) {
         if(!checkbox.checked) {
           checkbox.checked = true;
-          console.log('1');
         }
       }
     } else if(optValue === 'uncheckAll') {
       for(let checkbox of checkboxItem) {
         if(checkbox.checked) {
           checkbox.checked = false;
-          console.log('2');
         }
       }
     } else if(optValue === 'selectReverse') {
       for(let checkbox of checkboxItem) {
         if(checkbox.checked) {
           checkbox.checked = false;
-          console.log('3.1');
         } else {
           checkbox.checked = true;
-          console.log('3.2');
         }
       }
     }
