@@ -5,37 +5,21 @@ let t = false;
 const filteringTasksList = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   let tasksItem = document.querySelectorAll('.tasks-container > .tasks-container__task-item');
+  let tasksContent = document.querySelectorAll('.tasks-container > .tasks-container__task-item > .tasks-container__task-content-container > .tasks-container__task-text-item');
 
+  tasksContent = [...tasksContent];
   tasksItem = [...tasksItem];
 
-
-  tasksItem.forEach((taskSimple) => {
-    taskSimple.classList.add('filterOff');
+  const filteredTasks = activeArray.filter((item, index) => {
+    return item.indexOf(this.value) !== -1;
   });
 
-  activeArray.reverse();
+  console.log("filteredTasks: ", filteredTasks);
 
-  activeArray.filter((item, index) => {
-    
-    if(item.indexOf(this.value) !== -1) {
-      tasksItem[index].classList.remove('hidden');
-      tasksItem[index].classList.remove('filterOff');
-
-      if(tasksItem.length > 5 && t) {
-        tasksItem[index].classList.add('hidden');
-        console.log("tescik");
-
-        t = false;
-      }
-
-      if(index >= 5) {
-        t = true;
-      }
-
-    } else {
-      console.log('ass2');
-    }
-
+  tasksContent.forEach((itemContent) => {
+    filteredTasks.forEach((filteredItem) => {
+      if(itemContent.textContent === filteredItem) {}
+    });
   });
 }
 
