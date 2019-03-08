@@ -1,5 +1,6 @@
 import tasks from './tasks.js';
-import addTask from './addTask.js';
+
+let activeArray = tasks;
 
 const sortTasks = () => {
 
@@ -11,11 +12,14 @@ const sortTasks = () => {
     return a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});
   });
 
+  // CHANGE ACTIVE ARRAY
+  activeArray = tasksWithoutWhiteSpace;
+
   return tasksWithoutWhiteSpace;
 
 }
 
-const sortingTasks = () => {
+const renderTasksDOM = () => {
   const tasksContainer = document.querySelector('.tasks-container');
   const tasksContent = document.querySelectorAll('.tasks-container > .tasks-container__task-item > .tasks-container__task-content-container > .tasks-container__task-text-item');
 
@@ -30,4 +34,5 @@ const sortingTasks = () => {
   }
 }
 
-export default sortingTasks;
+export default renderTasksDOM;
+export { activeArray };

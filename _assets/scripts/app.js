@@ -7,7 +7,7 @@ import returnToSavedTheLastPage from './modules/returnToSavedTheLastPage.js';
 import selectTasks from './modules/selectTasks.js';
 import { showSelectedTasksOperationPanel } from './modules/selectTasks.js';
 import { selectedTasksLength } from './modules/selectTasks.js';
-import sortingTasks from './modules/sortingTasks.js';
+import  renderTasksDOM from './modules/sortingTasks.js';
 
 document.addEventListener("DOMContentLoaded", function() {
   const addTaskInput = document.querySelector('.to-do__add-task-input');
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }, false);
 
   // SORTING TASKS BTN
-  sortingTasksBtn.addEventListener('click', sortingTasks, false);
+  sortingTasksBtn.addEventListener('click', renderTasksDOM, false);
 
   // FILTERING
   document.addEventListener('click', function(e) {

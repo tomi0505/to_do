@@ -188,6 +188,10 @@ body {
     &.hidden {
       display: none;
     }
+
+    &.filterOff {
+      display: none;
+    }
   }
 
   &__task-content-container {
