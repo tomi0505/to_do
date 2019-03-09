@@ -1,7 +1,5 @@
 import { activeArray } from './sortingTasks.js';
 
-let t = false;
-
 const filteringTasksList = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   let tasksItem = document.querySelectorAll('.tasks-container > .tasks-container__task-item');
