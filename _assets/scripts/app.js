@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if(checkboxItem) {
       showSelectedTasksOperationPanel();
       selectedTasksLength();
+      if(filteringInput.value.trim() !== "") {
+        filteringTasksList.call(filteringInput);
+      }
     }
   }, false);
 

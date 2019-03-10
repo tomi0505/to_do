@@ -3,6 +3,7 @@ import { paginationData } from './paginationTasks.js';
 import { paginationTasksToLeft } from './paginationTasks.js';
 import { updateTasksLengthCounter } from './addTask.js';
 import { decreasePagesLength } from './updatePagesLength.js';
+import { pagesLengthCounter } from './updatePagesLength.js';
 import { showInfoPanel, showSettingsPanel } from './addTask.js';
 import { selectedTasksLength } from './selectTasks.js';
 import { selectedTasks } from './selectTasks.js';
@@ -24,7 +25,7 @@ const updateTasksOnPage = function(removeTaskIndex) {
     tasksItem[paginationData.pageNumber*paginationData.itemsOnPage-1].classList.remove('hidden');
   }
 
-  if(tasksItem[removeTaskIndex-1] !== undefined && tasksItem[removeTaskIndex-1].classList.contains('hidden') && tasksItem[removeTaskIndex] === undefined) {
+  if(tasks.length % 5 === 0 && paginationData.pageNumber === pagesLengthCounter) {
     paginationTasksToLeft();
   }
 }
