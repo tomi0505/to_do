@@ -1,5 +1,15 @@
 import { activeArray } from './sortingTasks.js';
 
+const viewResultFilteringInputTooltip = inputEl => {
+  const resultFilteringInputTooltip = document.querySelector('.filtering-input-result');
+
+  if(inputEl.value.trim() !== "") {
+    resultFilteringInputTooltip.classList.add('visible');
+  } else {
+    resultFilteringInputTooltip.classList.remove('visible');
+  }
+}
+
 const checkedOrUnchecked = (i) => {
   const tasksContainer = document.querySelector('.tasks-container');
 
@@ -17,6 +27,8 @@ const filteringTasksList = function() {
   const checkedTasksResultByFilter = document.querySelector('.filtering-input-result__checked-tasks');
 
   const uncheckedTasksResultByFilter = document.querySelector('.filtering-input-result__unchecked-tasks');
+
+  viewResultFilteringInputTooltip(this);
 
   let checkedTasks = [];
   let uncheckedTasks = [];
@@ -36,3 +48,4 @@ const filteringTasksList = function() {
 }
 
 export default filteringTasksList;
+export { viewResultFilteringInputTooltip };
