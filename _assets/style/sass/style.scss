@@ -69,6 +69,7 @@ body {
 
   &__filtering {
     margin: 0 $LR-margin-inside-settings-panel;
+    position: relative;
   }
 
   &__filtering-form {
@@ -150,6 +151,15 @@ body {
     }
   }
 
+  &__selected-tasks-length {
+    &::before {
+      content: "\e902";
+      margin-right: 3px;
+      font-family: "icomoon";
+      font-size: 0.8rem;
+    }
+  }
+
   &__remove-selected-tasks-btn {
     @include reset(button);
     font-size: 1rem;
@@ -165,6 +175,43 @@ body {
     @include reset(button);
     font-size: 1rem;
     cursor: pointer;
+  }
+}
+
+.filtering-input-result {
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  padding: 7px;
+  min-width: 100px;
+  max-width: 200px;
+  background-color: $white;
+  border-radius: 5px;
+  transform: translateX(-50%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-top: 10px solid $white;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    transform: translate(-50%, -3px);
+  }
+
+  &__checked-title,
+  &__unchecked-title {
+    font-size: 0.9rem;
+  }
+
+  &__checked-title {
+    margin-bottom: 4px;
+  }
+
+  &__unchecked-title {
+    margin-top: 7px;
+    margin-bottom: 4px;
   }
 }
 
