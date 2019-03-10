@@ -13,7 +13,7 @@ const checkedOrUnchecked = (i) => {
   return checkboxItem.checked;
 }
 
-const filteringTasksList = function(e) { console.log("key", "e.target.value: ", e.target.value, "this: ", this);
+const filteringTasksList = function() {
   const checkedTasksResultByFilter = document.querySelector('.filtering-input-result__checked-tasks');
 
   const uncheckedTasksResultByFilter = document.querySelector('.filtering-input-result__unchecked-tasks');
@@ -22,7 +22,7 @@ const filteringTasksList = function(e) { console.log("key", "e.target.value: ", 
   let uncheckedTasks = [];
 
   activeArray.filter((item, index) => {
-    if(item.indexOf(e.target.value) !== -1) {
+    if(item.indexOf(this.value) !== -1) {
       if(checkedOrUnchecked(index)) {
         checkedTasks.push(item);
       } else {
@@ -34,8 +34,5 @@ const filteringTasksList = function(e) { console.log("key", "e.target.value: ", 
   checkedTasksResultByFilter.innerHTML = checkedTasks;
   uncheckedTasksResultByFilter.innerHTML = uncheckedTasks;
 }
-
-//na inpucie keyup-a ze strzałkami usuń!!!, bo funkcja się wykonuje,
-// gdy klikasz strzałki na sfocusowanym inpucie, haaa!!
 
 export default filteringTasksList;

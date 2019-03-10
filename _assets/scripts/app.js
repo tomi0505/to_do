@@ -70,11 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, false);
 
-  filteringInput.addEventListener('input', e => {
-    // if(!(e.keyCode >= 37) || !(e.keyCode <= 40)) {
-      filteringTasksList(e);
-    // }
-  }, false);
+  filteringInput.addEventListener('input', filteringTasksList, false);
 
   // RETURN TO SAVED LAST PAGE
   savedLastPageLink.addEventListener('click', returnToSavedTheLastPage, false);
