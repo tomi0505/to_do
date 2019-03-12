@@ -16,7 +16,6 @@ const sortTasks = () => {
   activeArray = tasksWithoutWhiteSpace;
 
   return tasksWithoutWhiteSpace;
-
 }
 
 const renderTasksDOM = () => {

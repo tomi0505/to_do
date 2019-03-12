@@ -8,6 +8,17 @@ import { showInfoPanel, showSettingsPanel } from './addTask.js';
 import { selectedTasksLength } from './selectTasks.js';
 import { selectedTasks } from './selectTasks.js';
 import { showSelectedTasksOperationPanel } from './selectTasks.js';
+import filteringTasksList from './filteringTasksList.js';
+import { checkedTasksObjData } from './filteringTasksList.js';
+import { activeArray } from './sortingTasks.js';
+
+const updateFilterResultsByFilterInput = () => {
+  const filteringInput = document.querySelector('.to-do__filtering-input');
+  
+  if(filteringInput.value.trim() !== "") {
+    filteringTasksList.call(filteringInput);
+  }
+}
 
 const changeSelectedTasksValueObj = removeTaskBtn => {
   const checkboxItem = removeTaskBtn.parentNode.querySelector('.tasks-container__task-checked-item');
@@ -35,8 +46,7 @@ const removeTask = function(removeTaskBtn) {
   taskItems = [...taskItems];
 
   const removeTaskIndex = taskItems.indexOf(removeTaskBtn.parentNode);
-
-  tasks.splice(removeTaskIndex, 1);
+  tasks.splice(-1, removeTaskIndex+1);
 
   changeSelectedTasksValueObj(removeTaskBtn);
   showSelectedTasksOperationPanel();
@@ -56,6 +66,8 @@ const removeTask = function(removeTaskBtn) {
   if(tasks.length % paginationData.itemsOnPage === 0) {
     decreasePagesLength();
   }
+
+  updateFilterResultsByFilterInput();
 }
 
 export default removeTask;

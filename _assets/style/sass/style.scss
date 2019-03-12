@@ -176,6 +176,17 @@ body {
     font-size: 1rem;
     cursor: pointer;
   }
+
+  &__reverse-tasks-btn {
+    margin: 0 $LR-margin-inside-settings-panel;
+    @include flex();
+    @include reset(button);
+    cursor: pointer;
+
+    .icon {
+      font-size: 1rem;
+    }
+  }
 }
 
 .filtering-input-result {
