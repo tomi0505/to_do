@@ -7,6 +7,14 @@ const paginationData = {
 
 let pageCounter = tasks.length / paginationData.itemsOnPage;
 
+const hiddenReturnToLastPageAlert = () => {
+  const pageAlertDiv = document.querySelector('.last-visited-page-alert');
+  const visibleEl = pageAlertDiv.classList.contains('visible');
+  if(visibleEl) {
+    pageAlertDiv.classList.remove('visible');
+  }
+}
+
 const updatePageNumber = () => {
   const pageNumber = document.querySelector('.to-do__page-number');
   pageNumber.innerHTML = paginationData.pageNumber;
@@ -29,6 +37,7 @@ const paginationTasksToLeft = () => {
   }
 
   updatePageNumber();
+  hiddenReturnToLastPageAlert();
 }
 
 const paginationTasksToRight = () => {
@@ -47,6 +56,7 @@ const paginationTasksToRight = () => {
   }
 
   updatePageNumber();
+  hiddenReturnToLastPageAlert();
 }
 
 export { paginationData };

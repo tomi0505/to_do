@@ -1,37 +1,30 @@
 import tasks from './tasks.js';
 
 let activeArray = tasks;
+let sortOn = false;
 
 const sortTasks = () => {
+  const tasksContainer = document.querySelector('.tasks-container');
+  let taskItems = document.querySelector('.tasks-container').children;
+  taskItems = [...taskItems];
 
-  const tasksWithoutWhiteSpace = tasks.map((item)=> {
-      return item.replace(/\s/g, "");
-    });
-
-  tasksWithoutWhiteSpace.sort((a, b)=> {
-    return a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});
+  taskItems.sort((a, b)=> {
+    return a.querySelector('.tasks-container__task-content-container > .tasks-container__task-text-item').textContent.replace(/\s/g, "").localeCompare(b.querySelector('.tasks-container__task-content-container > .tasks-container__task-text-item').textContent.replace(/\s/g, ""), undefined, {numeric: true, sensitivity: 'base'});
   });
 
-  // CHANGE ACTIVE ARRAY
-  activeArray = tasksWithoutWhiteSpace;
+  tasksContainer.innerHTML = "";
 
-  return tasksWithoutWhiteSpace;
+  taskItems.forEach((taskItem) => {
+    tasksContainer.appendChild(taskItem);
+  });
+
+  activeArray = taskItems.map((taskItem) => {
+    return taskItem.querySelector('.tasks-container__task-content-container > .tasks-container__task-text-item').textContent;
+  });
+
+  sortOn = true;
 }
 
-const renderTasksDOM = () => {
-  const tasksContainer = document.querySelector('.tasks-container');
-  const tasksContent = document.querySelectorAll('.tasks-container > .tasks-container__task-item > .tasks-container__task-content-container > .tasks-container__task-text-item');
-
-  const sortedTasksArr = sortTasks();
-
-  
-  let i = 0;
-
-  for(let taskText of tasksContent) {
-    taskText.innerHTML = sortedTasksArr[i];
-    i++;
-  }
-}
-
-export default renderTasksDOM;
+export default sortTasks;
 export { activeArray };
+export { sortOn };

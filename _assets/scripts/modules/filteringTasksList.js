@@ -48,8 +48,9 @@ const filteringTasksList = function() {
     }
   });
 
-  checkedTasksResultByFilter.innerHTML = checkedTasksObjData.checkedTasks;
-  uncheckedTasksResultByFilter.innerHTML = checkedTasksObjData.uncheckedTasks;
+  checkedTasksObjData.checkedTasks.length? checkedTasksResultByFilter.innerHTML = checkedTasksObjData.checkedTasks : checkedTasksResultByFilter.innerHTML = "brak wyników.";
+
+  checkedTasksObjData.uncheckedTasks.length? uncheckedTasksResultByFilter.innerHTML = checkedTasksObjData.uncheckedTasks : uncheckedTasksResultByFilter.innerHTML = "brak wyników.";
 }
 
 export default filteringTasksList;

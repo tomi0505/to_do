@@ -11,6 +11,7 @@ import { showSelectedTasksOperationPanel } from './selectTasks.js';
 import filteringTasksList from './filteringTasksList.js';
 import { checkedTasksObjData } from './filteringTasksList.js';
 import { activeArray } from './sortingTasks.js';
+import { sortOn } from './sortingTasks.js';
 
 const updateFilterResultsByFilterInput = () => {
   const filteringInput = document.querySelector('.to-do__filtering-input');
@@ -46,7 +47,29 @@ const removeTask = function(removeTaskBtn) {
   taskItems = [...taskItems];
 
   const removeTaskIndex = taskItems.indexOf(removeTaskBtn.parentNode);
-  tasks.splice(-1, removeTaskIndex+1);
+  
+  if(sortOn) {
+    // console.log("activeArray: ", activeArray);
+    // console.log("tasks: ", tasks);
+    // console.log("removeTaskIndex: ", removeTaskIndex);
+
+    tasks.splice(removeTaskIndex, 1);
+    activeArray.splice(removeTaskIndex, 1);
+
+    // console.log("activeArray: ", activeArray);
+    // console.log("tasks: ", tasks);
+
+  } else {
+    // console.log("activeArray: ", activeArray);
+    // console.log("tasks: ", tasks);
+    // console.log("removeTaskIndex: ", removeTaskIndex);
+
+    tasks.reverse().splice(removeTaskIndex, 1);
+    tasks.reverse();
+
+    // console.log("activeArray: ", activeArray);
+    // console.log("tasks: ", tasks);
+  }
 
   changeSelectedTasksValueObj(removeTaskBtn);
   showSelectedTasksOperationPanel();
