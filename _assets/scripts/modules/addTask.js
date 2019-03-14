@@ -3,9 +3,11 @@ import removeTask from './removeTask.js';
 import { paginationData } from './paginationTasks.js';
 import increasePagesLength from './updatePagesLength.js';
 import { updatePageNumber } from './paginationTasks.js';
+import { sortOn } from './sortingTasks.js';
 
 let taskId = 0;
 let firstUpdatePageNumber = true;
+let activeArray = tasks;
 
 const updateTasksLengthCounter = () => {
   const tasksLengthEl = document.querySelector('.to-do__tasks-length');
@@ -36,16 +38,31 @@ const showSettingsPanel = () => {
 }
 
 const addTask = function() {
+  console.log("activeArray by added: ", activeArray, "tasks by added: ", tasks);
+
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
 
-  const liStringTemplate = `
-    <form class="tasks-container__task-content-container">
-      <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
-      <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
-    </form>
-    <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
-  `;
+  let liStringTemplate;
+
+  if(sortOn) {
+    liStringTemplate = `
+      <form class="tasks-container__task-content-container">
+        <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
+        <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[0]}</label>
+      </form>
+      <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
+    `;
+
+  } else {
+    liStringTemplate = `
+      <form class="tasks-container__task-content-container">
+        <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
+        <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
+      </form>
+      <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
+    `;
+  }
 
   taskId++;
 
@@ -76,3 +93,4 @@ const addTask = function() {
 export default addTask;
 export { updateTasksLengthCounter };
 export { showInfoPanel, showSettingsPanel };
+export { activeArray };

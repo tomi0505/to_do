@@ -47,29 +47,20 @@ const removeTask = function(removeTaskBtn) {
   taskItems = [...taskItems];
 
   const removeTaskIndex = taskItems.indexOf(removeTaskBtn.parentNode);
+
+  // console.log("tasksB: ", tasks);
+  // console.log("activeArrayB: ", activeArray);
+  // console.log("removeTaskIndex: ", removeTaskIndex);
   
   if(sortOn) {
-    // console.log("activeArray: ", activeArray);
-    // console.log("tasks: ", tasks);
-    // console.log("removeTaskIndex: ", removeTaskIndex);
-
     tasks.splice(removeTaskIndex, 1);
-    activeArray.splice(removeTaskIndex, 1);
-
-    // console.log("activeArray: ", activeArray);
-    // console.log("tasks: ", tasks);
-
   } else {
-    // console.log("activeArray: ", activeArray);
-    // console.log("tasks: ", tasks);
-    // console.log("removeTaskIndex: ", removeTaskIndex);
-
     tasks.reverse().splice(removeTaskIndex, 1);
     tasks.reverse();
-
-    // console.log("activeArray: ", activeArray);
-    // console.log("tasks: ", tasks);
   }
+
+  // console.log("tasks: ", tasks);
+  // console.log("activeArray: ", activeArray);
 
   changeSelectedTasksValueObj(removeTaskBtn);
   showSelectedTasksOperationPanel();

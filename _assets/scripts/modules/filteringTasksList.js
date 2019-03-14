@@ -21,8 +21,6 @@ const checkedOrUnchecked = (i) => {
   let tasksContainerChildrens = tasksContainer.children;
   tasksContainerChildrens = [...tasksContainerChildrens];
 
-  tasksContainerChildrens.reverse();
-
   let checkboxItem = tasksContainerChildrens[i].querySelector('.tasks-container__task-content-container > .tasks-container__task-checked-item');
 
   return checkboxItem.checked;
@@ -47,6 +45,8 @@ const filteringTasksList = function() {
       }
     }
   });
+
+  console.log("checkedTasksObjData: ", checkedTasksObjData);
 
   checkedTasksObjData.checkedTasks.length? checkedTasksResultByFilter.innerHTML = checkedTasksObjData.checkedTasks : checkedTasksResultByFilter.innerHTML = "brak wyników.";
 
