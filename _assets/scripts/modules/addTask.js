@@ -38,8 +38,6 @@ const showSettingsPanel = () => {
 }
 
 const addTask = function() {
-  console.log("activeArray by added: ", activeArray, "tasks by added: ", tasks);
-
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
 

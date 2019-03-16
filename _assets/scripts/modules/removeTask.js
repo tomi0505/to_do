@@ -10,16 +10,9 @@ import { selectedTasks } from './selectTasks.js';
 import { showSelectedTasksOperationPanel } from './selectTasks.js';
 import filteringTasksList from './filteringTasksList.js';
 import { checkedTasksObjData } from './filteringTasksList.js';
+import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
 import { activeArray } from './sortingTasks.js';
 import { sortOn } from './sortingTasks.js';
-
-const updateFilterResultsByFilterInput = () => {
-  const filteringInput = document.querySelector('.to-do__filtering-input');
-  
-  if(filteringInput.value.trim() !== "") {
-    filteringTasksList.call(filteringInput);
-  }
-}
 
 const changeSelectedTasksValueObj = removeTaskBtn => {
   const checkboxItem = removeTaskBtn.parentNode.querySelector('.tasks-container__task-checked-item');
@@ -47,10 +40,6 @@ const removeTask = function(removeTaskBtn) {
   taskItems = [...taskItems];
 
   const removeTaskIndex = taskItems.indexOf(removeTaskBtn.parentNode);
-
-  // console.log("tasksB: ", tasks);
-  // console.log("activeArrayB: ", activeArray);
-  // console.log("removeTaskIndex: ", removeTaskIndex);
   
   if(sortOn) {
     tasks.splice(removeTaskIndex, 1);
@@ -58,9 +47,6 @@ const removeTask = function(removeTaskBtn) {
     tasks.reverse().splice(removeTaskIndex, 1);
     tasks.reverse();
   }
-
-  // console.log("tasks: ", tasks);
-  // console.log("activeArray: ", activeArray);
 
   changeSelectedTasksValueObj(removeTaskBtn);
   showSelectedTasksOperationPanel();

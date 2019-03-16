@@ -1,4 +1,5 @@
 import { activeArray } from './sortingTasks.js';
+import { sortOn } from './sortingTasks.js';
 
 const checkedTasksObjData = {
   checkedTasks: [],
@@ -15,13 +16,23 @@ const viewResultFilteringInputTooltip = inputEl => {
   }
 }
 
+const updateFilterResultsByFilterInput = () => {
+  const filteringInput = document.querySelector('.to-do__filtering-input');
+  
+  if(filteringInput.value.trim() !== "") {
+    filteringTasksList.call(filteringInput);
+  }
+}
+
 const checkedOrUnchecked = (i) => {
   const tasksContainer = document.querySelector('.tasks-container');
 
   let tasksContainerChildrens = tasksContainer.children;
   tasksContainerChildrens = [...tasksContainerChildrens];
 
-  tasksContainerChildrens.reverse();
+  if(!sortOn) {
+    tasksContainerChildrens.reverse();
+  }
 
   let checkboxItem = tasksContainerChildrens[i].querySelector('.tasks-container__task-content-container > .tasks-container__task-checked-item');
 
@@ -56,3 +67,4 @@ const filteringTasksList = function() {
 export default filteringTasksList;
 export { viewResultFilteringInputTooltip };
 export { checkedTasksObjData };
+export { updateFilterResultsByFilterInput };

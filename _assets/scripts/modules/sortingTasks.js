@@ -1,12 +1,14 @@
 import tasks from './tasks.js';
 import { paginationData } from './paginationTasks.js';
 import filteringTasksList from './filteringTasksList.js';
+import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
 import { activeArray } from './addTask.js';
 
 let sortOn = false;
 
 const sortTasks = () => {
   const tasksContainer = document.querySelector('.tasks-container');
+  const filteringInput = document.querySelector('.to-do__filtering-input');
   let taskItems = document.querySelector('.tasks-container').children;
   taskItems = [...taskItems];
 
@@ -34,14 +36,7 @@ const sortTasks = () => {
     activeArray.push(taskItem.querySelector('.tasks-container__task-content-container > .tasks-container__task-text-item').textContent);
   });
 
-  // console.log("by sort activeArray: ", activeArray);
-
-
   sortOn = true;
-  const filteringInput = document.querySelector('.to-do__filtering-input');
-  if(filteringInput.value.trim() !== "") {
-    filteringTasksList.call(filteringInput);
-  }
 }
 
 export default sortTasks;

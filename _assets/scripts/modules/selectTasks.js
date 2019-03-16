@@ -1,4 +1,5 @@
 import tasks from './tasks.js';
+import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
 
 const selectedTasks = {
   selected: 0,
@@ -67,6 +68,7 @@ const selectTasks = function(e) {
 
     this.selectedIndex = 0;
     showSelectedTasksOperationPanel();
+    updateFilterResultsByFilterInput();
     selectedTasksLength();
   }
 }
