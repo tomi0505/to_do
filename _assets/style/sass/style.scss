@@ -220,18 +220,22 @@ body {
   bottom: 145%;
   display: none;
   padding: 7px;
-  min-width: 100px;
+  min-width: 150px;
   max-width: 200px;
-  background-color: $primary-color;
+  max-height: 150px;
+  color: $white;
+  word-break: break-word;
+  background-color: $color3;
   border-radius: 5px;
   transform: translateX(-50%);
+  overflow: auto;
 
   &::after {
     content: "";
     position: absolute;
     top: 100%;
     left: 50%;
-    border-top: 10px solid $primary-color;
+    border-top: 10px solid $color3;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     transform: translate(-50%, -3px);
@@ -243,7 +247,8 @@ body {
 
   &__checked-title,
   &__unchecked-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   &__checked-title {
@@ -360,8 +365,9 @@ body {
   }
 
   &__page-number {
-    @include circle(21px);
-    color: $black;
+    @include circle();
+    color: $white;
+    background-color: $secondary-dark-color;
   }
 
   &__return-link {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
     <link rel="stylesheet" href="_assets/style/reset.css">
     <link rel="stylesheet" href="_assets/icons/style.css">
     <link rel="stylesheet" href="_assets/style/style.css">
@@ -22,16 +22,16 @@
         <div class="to-do__filtering">
           <form action="#" class="to-do__filtering-form">
             <label for="to-do__filtering-input" title="Wyszukaj" class="to-do__filtering-input-label">
-              <span class="icon icon-iconfinder_music_player_black-07_3695052"></span>
+              <span class="icon icon-search1"></span>
             </label>
             <input type="text" class="to-do__filtering-input" id="to-do__filtering-input">
             <div class="filtering-input-result">
               <section class="filtering-input-result__checked">
-                <h6 class="filtering-input-result__checked-title">WYKONANE:</h6>
+                <h6 class="filtering-input-result__checked-title">Wykonane:</h6>
                 <p class="filtering-input-result__checked-tasks"></p>
               </section>
               <section class="filtering-input-result__unchecked">
-                <h6 class="filtering-input-result__unchecked-title">DO ZROBIENIA:</h6>
+                <h6 class="filtering-input-result__unchecked-title">Do zrobienia:</h6>
                 <p class="filtering-input-result__unchecked-tasks"></p>
               </section>
             </div>
@@ -50,7 +50,10 @@
       <ul class="tasks-container"></ul>
       <section class="to-do__info-panel">
         <aside class="last-visited-page-alert">
-          <p class="last-visited-page-alert__content">Ostatnio odwiedziłeś stronę <span class="last-visited-page-alert__page-number"></span> <span class="last-visited-page-alert__return-link">Powrót</span></p>
+          <p class="last-visited-page-alert__content">
+            <span class="last-visited-page-alert__return-link">Powrót do poprzedniej strony</span>
+            <span class="last-visited-page-alert__page-number"></span>
+          </p>
         </aside>
         <section class="to-do__task-operation">
           <section class="to-do__selected-tasks-operation-panel">

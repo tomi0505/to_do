@@ -39,7 +39,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const removeSelectedTasksBtn = document.querySelector('.to-do__remove-selected-tasks-btn');
 
-  addTaskInput.addEventListener('focus', moveToDoBox("add"), false);
+  addTaskInput.addEventListener('focus', () => {
+    moveToDoBox("add");
+  }, false);
   
   addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
