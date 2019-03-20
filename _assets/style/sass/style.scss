@@ -5,26 +5,43 @@
 
 body {
   font-size: $base-font-size;
-  background-color: #c08b5c;
+  background-color: #dbdbdb;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 94vh solid $primary-color;
+    border-right: 94vw solid transparent;
+    z-index: -999;
+  }
 }
 
 .to-do {
   margin: 120px auto;
-  max-width: 650px;
+  padding: 10px;
+  max-width: 500px;
+  background-color: $white;
 
   &__add-tasks-form {
     margin-bottom: 13px;
     @include flex();
+    font-size: 1.4rem;
   }
 
   &__add-task-input {
-    padding: 2px;
+    padding: 7px 10px;
     flex-grow: 1;
     font-size: $base-font-size;
     letter-spacing: 1px;
-    caret-color: rgba($primary-color, .4);
+    color: $white;
+    caret-color: $primary-color;
     @include reset(inputText);
     border-bottom: 1px solid rgba($black, .2);
+    background-color: $secondary-dark-color;
 
     &::placeholder {
       color: rgba($black, .2);
@@ -39,16 +56,16 @@ body {
     &.visible {
       @include flex(flex-start);
     }
-
-    .icon {
-      font-size: 1.5rem;
-    }
   }
 
   &__pagination {
     @include flex(flex-start);
     flex-wrap: nowrap;
     border-radius: 30px;
+
+    .icon {
+      font-size: 1.5rem;
+    }
   }
 
   &__right-arrow-icon,
@@ -77,6 +94,8 @@ body {
   }
 
   &__filtering-input-label {
+    margin: 0 5px;
+
     .icon.icon-search1 {
       font-size: 1.4rem;
       cursor: pointer;
@@ -84,17 +103,19 @@ body {
   }
 
   &__filtering-input {
-    padding: 2px;
     @include reset(inputText);
     width: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
-    caret-color: rgba($primary-color, .4);
+    color: $white;
+    caret-color: $primary-color;
     border-bottom: 1px solid rgba($black, .2);
-    transition: width .2s, opacity .2s;
+    background-color: $secondary-dark-color;
+    transition: padding .2s, width .2s, opacity .2s;
     opacity: 0;
 
     &.active {
+      padding: 3px 5px;
       width: 120px;
       opacity: 1;
     }
@@ -121,11 +142,11 @@ body {
     @include reset(select);
     font-size: 1rem;
     border-radius: 2px;
+    background-color: $bg-2nd-color;
     background-image: url(../img/icons/arrow_down.svg);
     background-repeat: no-repeat;
     background-position: right;
     background-size: 1.4rem;
-    background-color: #c0bd5c;
     cursor: pointer;
   }
 
@@ -135,9 +156,11 @@ body {
 
   &__task-operation {
     @include flex(flex-end);
+    flex-direction: column;
   }
 
   &__selected-tasks-operation-panel {
+    margin: 0 8px 8px 8px;
     display: inline-block;
     min-width: 0;
     max-width: 0;
@@ -186,7 +209,7 @@ body {
   padding: 7px;
   min-width: 100px;
   max-width: 200px;
-  background-color: $white;
+  background-color: $primary-color;
   border-radius: 5px;
   transform: translateX(-50%);
 
@@ -195,7 +218,7 @@ body {
     position: absolute;
     top: 100%;
     left: 50%;
-    border-top: 10px solid $white;
+    border-top: 10px solid $primary-color;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     transform: translate(-50%, -3px);
@@ -227,11 +250,13 @@ body {
     @include flex(space-between);
     flex-wrap: nowrap;
     letter-spacing: 1px;
-    border-radius: 5px;
-    background-color: $primary-color;
 
     &:hover {
-      background-color: lighten($primary-color, 10);
+      & > .tasks-container__task-content-container > .tasks-container__task-checked-item {
+        &::after {
+          display: block;
+        }
+      }
     }
 
     &:hover > .tasks-container__remove-task-item {
@@ -248,8 +273,8 @@ body {
   }
 
   &__task-content-container {
-    margin: 0 3px;
-    @include flex();
+    @include flex(flex-start);
+    width: 100%;
     flex-wrap: nowrap;
   }
 
@@ -259,6 +284,8 @@ body {
     width: 19px;
     height: 19px;
     flex-shrink: 0;
+    border-color: $primary-color;
+    border-width: 2px;
     transition: background-color .2s;
     cursor: pointer;
 
@@ -267,28 +294,27 @@ body {
       @include absolute(50%, 50%);
       display: none;
       font-family: 'icomoon';
+      font-size: 0.7rem;
       transform: translate(-50%, -50%);
     }
 
-    &:hover::after {
-      display: inline-block;
+    &:checked {
+      border-color: $checked-task-color;
     }
 
-    &:checked {
-      background-color: $black;
+    &:checked + .tasks-container__task-text-item {
+      color: $checked-task-color;
+      text-decoration: line-through;
     }
 
     &:checked::after {
       display: inline-block;
-      color: $primary-color;
-    }
-
-    &:checked + .tasks-container__task-text-item {
-      text-decoration: line-through;
+      color: $checked-task-color;
     }
   }
 
   &__task-text-item {
+    width: 100%;
     word-break: break-word;
     cursor: pointer;
   }
@@ -296,16 +322,18 @@ body {
   &__remove-task-item {
     margin: 0 5px;
     display: none;
-    font-size: 1.3rem;
+    font-size: 1rem;
     cursor: pointer;
   }
 }
 
 .last-visited-page-alert {
   display: inline-block;
+  align-self: flex-end;
   max-width: 0;
   white-space: nowrap;
-  background-color: #c0bd5c;
+  border-radius: 2px;
+  background-color: $primary-color;
   transition: max-width .5s;
   overflow: hidden;
 
@@ -320,6 +348,7 @@ body {
 
   &__page-number {
     @include circle(21px);
+    color: $black;
   }
 
   &__return-link {

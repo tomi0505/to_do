@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const removeTaskBtn = e.target.classList.contains('tasks-container__remove-task-item');
 
     const checkboxItem = e.target.classList.contains('tasks-container__task-checked-item');
-    
+
     if(removeTaskBtn) {
       removeTask(e.target);
     }

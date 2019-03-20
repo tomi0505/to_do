@@ -49,7 +49,7 @@ const addTask = function() {
         <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
         <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[0]}</label>
       </form>
-      <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
+      <span class="icon icon-bin tasks-container__remove-task-item"></span>
     `;
 
   } else {
@@ -58,7 +58,7 @@ const addTask = function() {
         <input type="checkbox" class="tasks-container__task-checked-item" id="checkedTask${taskId}">
         <label class="tasks-container__task-text-item" for="checkedTask${taskId}">${tasks[tasks.length-1]}</label>
       </form>
-      <span class="icon icon-trash-2 tasks-container__remove-task-item"></span>
+      <span class="icon icon-bin tasks-container__remove-task-item"></span>
     `;
   }
 
