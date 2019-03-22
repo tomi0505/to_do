@@ -141,8 +141,7 @@ body {
     padding-right: 1.4rem;
     @include reset(select);
     font-size: 1rem;
-    border-radius: 2px;
-    background-color: $bg-2nd-color;
+    border: 1px solid $secondary-dark-color;
     background-image: url(../img/icons/arrow_down.svg);
     background-repeat: no-repeat;
     background-position: right;
@@ -198,13 +197,17 @@ body {
     @include reset(button);
     font-size: 1rem;
     cursor: pointer;
+
+    & > .icon {
+      font-size: 0.9rem;
+    }
   }
 }
 
 .filtering-input-result {
   position: absolute;
   left: 50%;
-  bottom: 130%;
+  bottom: 145%;
   display: none;
   padding: 7px;
   min-width: 100px;
@@ -333,7 +336,7 @@ body {
   max-width: 0;
   white-space: nowrap;
   border-radius: 2px;
-  background-color: $primary-color;
+  background-color: $bg-2nd-color;
   transition: max-width .5s;
   overflow: hidden;
 

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?96v0po');
-  src:  url('fonts/icomoon.eot?96v0po#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?96v0po') format('truetype'),
-    url('fonts/icomoon.woff?96v0po') format('woff'),
-    url('fonts/icomoon.svg?96v0po#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?dfdwjz');
+  src:  url('fonts/icomoon.eot?dfdwjz#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?dfdwjz') format('truetype'),
+    url('fonts/icomoon.woff?dfdwjz') format('woff'),
+    url('fonts/icomoon.svg?dfdwjz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-iconfinder_music_player_black-07_3695052:before {
+  content: "\e911";
+}
 .icon-search:before {
   content: "\e910";
 }
