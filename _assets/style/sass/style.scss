@@ -21,15 +21,25 @@ body {
 }
 
 .to-do {
-  margin: 120px auto;
+  margin: 50vh auto 0 auto;
   padding: 10px;
   max-width: 500px;
   background-color: $white;
+  transform: translateY(-50%);
+  transition: .7s;
+
+  &.active {
+    margin-top: 120px;
+    transform: none;
+  }
 
   &__add-tasks-form {
-    margin-bottom: 13px;
     @include flex();
     font-size: 1.4rem;
+
+    &.active {
+      margin-bottom: 13px;
+    }
   }
 
   &__add-task-input {

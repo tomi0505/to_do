@@ -27,6 +27,11 @@ const counterItemTasks = paginationData => {
   }
 }
 
+const addBottomMarginForAddTasksForm = () => {
+  const addTasksForm = document.querySelector('.to-do__add-tasks-form');
+  addTasksForm.classList.toggle('active');
+}
+
 const showInfoPanel = () => {
   const infoPanel = document.querySelector('.to-do__info-panel');
   infoPanel.classList.toggle('visible');
@@ -78,6 +83,7 @@ const addTask = function() {
   if(tasks.length <= 1) {
     showInfoPanel(); 
     showSettingsPanel();
+    addBottomMarginForAddTasksForm();
   }
 
   updateTasksLengthCounter();
@@ -92,3 +98,4 @@ export default addTask;
 export { updateTasksLengthCounter };
 export { showInfoPanel, showSettingsPanel };
 export { activeArray };
+export { addBottomMarginForAddTasksForm };

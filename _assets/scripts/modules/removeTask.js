@@ -13,6 +13,8 @@ import { checkedTasksObjData } from './filteringTasksList.js';
 import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
 import { activeArray } from './sortingTasks.js';
 import { sortOn } from './sortingTasks.js';
+import moveToDoBox from './../app.js';
+import { addBottomMarginForAddTasksForm } from './addTask.js';
 
 const changeSelectedTasksValueObj = removeTaskBtn => {
   const checkboxItem = removeTaskBtn.parentNode.querySelector('.tasks-container__task-checked-item');
@@ -60,6 +62,8 @@ const removeTask = function(removeTaskBtn) {
   if(tasks.length < 1) {
     showInfoPanel(); 
     showSettingsPanel();
+    moveToDoBox("remove");
+    addBottomMarginForAddTasksForm();
   }
 
   // UPDATE PAGES LENGTH

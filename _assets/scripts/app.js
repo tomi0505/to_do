@@ -11,6 +11,15 @@ import  sortTasks from './modules/sortingTasks.js';
 import  removeSelectedTasks from './modules/removeSelectedTasks.js';
 import  { viewResultFilteringInputTooltip } from './modules/filteringTasksList.js';
 
+const moveToDoBox = action => {
+  const toDoBox = document.querySelector('.to-do');
+  if(action === "add") {
+    toDoBox.classList.add('active');
+  } else if (action === "remove") {
+    toDoBox.classList.remove('active');
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   const addTaskInput = document.querySelector('.to-do__add-task-input');
   const tasksContainer = document.querySelector('.tasks-container');
@@ -29,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const sortingTasksBtn = document.querySelector('.to-do__sorting-tasks-btn');
 
   const removeSelectedTasksBtn = document.querySelector('.to-do__remove-selected-tasks-btn');
+
+  addTaskInput.addEventListener('focus', moveToDoBox("add"), false);
   
   addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
@@ -93,3 +104,5 @@ document.addEventListener("DOMContentLoaded", function() {
   // SELECT TASKS PANEL
   selectTasksPanel.addEventListener('change', selectTasks, false);
 }, false);
+
+export default moveToDoBox;
