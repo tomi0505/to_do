@@ -3,6 +3,7 @@ import { paginationData } from './paginationTasks.js';
 import filteringTasksList from './filteringTasksList.js';
 import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
 import { activeArray } from './addTask.js';
+import { backToFirstPage } from './setTaskContent.js';
 
 let sortOn = false;
 
@@ -36,6 +37,7 @@ const sortTasks = () => {
     activeArray.push(taskItem.querySelector('.tasks-container__task-content-container > .tasks-container__task-text-item').textContent);
   });
 
+  backToFirstPage();
   sortOn = true;
 }
 

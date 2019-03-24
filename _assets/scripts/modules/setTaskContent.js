@@ -7,6 +7,12 @@ import { sortOn } from './sortingTasks.js';
 let lastVisitedPage;
 let hidePageAlertDiv;
 
+const backToFirstPage = () => {
+  for(let i = 0; i < paginationData.pageNumber; i++) {
+    paginationTasksToLeft();
+  }
+}
+
 const showPageAlertDiv = () => {
   const pageAlertDiv = document.querySelector('.last-visited-page-alert');
   pageAlertDiv.classList.add('visible');
@@ -53,3 +59,4 @@ const setTaskContent = function() {
 export default setTaskContent;
 export { lastVisitedPage };
 export { hidePageAlertDiv };
+export { backToFirstPage };

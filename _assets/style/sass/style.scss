@@ -219,7 +219,6 @@ body {
   left: 50%;
   bottom: 145%;
   display: none;
-  padding: 7px;
   min-width: 150px;
   max-width: 200px;
   max-height: 150px;
@@ -228,7 +227,6 @@ body {
   background-color: $color3;
   border-radius: 5px;
   transform: translateX(-50%);
-  overflow: auto;
 
   &::after {
     content: "";
@@ -239,10 +237,17 @@ body {
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     transform: translate(-50%, -3px);
+    z-index: -1;
   }
 
   &.visible {
     display: block;
+  }
+
+  &__main-content {
+    padding: 7px;
+    max-height: 150px;
+    overflow: auto;
   }
 
   &__checked-title,
