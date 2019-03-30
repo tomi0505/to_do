@@ -3,6 +3,14 @@
 @import 'settings.scss';
 @import 'helpers.scss';
 
+html {
+  font-size: 16px;
+
+  @include rwd(500px) {
+    font-size: 15px;
+  }
+}
+
 body {
   font-size: $base-font-size;
   background-color: #dbdbdb;
@@ -142,6 +150,11 @@ body {
 
     &.visible {
       @include flex(space-between);
+
+      @include rwd(500px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+      }
     }
   }
 
@@ -157,6 +170,10 @@ body {
     background-position: right;
     background-size: 1.4rem;
     cursor: pointer;
+
+    @include rwd(500px) {
+      margin: 4px 5px;
+    }
   }
 
   &__select-default-label {
@@ -302,7 +319,7 @@ body {
   }
 
   &__task-checked-item {
-    margin: 0 8px 0 5px;
+    margin: 0 14px 0 5px;
     @include reset(checked);
     width: 19px;
     height: 19px;
@@ -360,9 +377,17 @@ body {
   transition: max-width .5s;
   overflow: hidden;
 
+  @include rwd(500px) {
+    align-self: auto;
+  }
+
   &.visible {
     margin: 0 5px;
     max-width: 228px;
+
+    @include rwd(500px) {
+      margin-top: 9px;
+    }
   }
 
   &__content {
