@@ -5,6 +5,7 @@
 
 html {
   font-size: 16px;
+  height: 100%;
   overflow: hidden;
 
   @include rwd(500px) {
@@ -13,8 +14,8 @@ html {
 }
 
 body {
-  @include flex();
-  height: 100vh;
+  // @include flex();
+  height: 100%;
   font-size: $base-font-size;
   background-color: #dbdbdb;
   overflow: hidden;
@@ -30,19 +31,34 @@ body {
     border-right: 94vw solid transparent;
     z-index: -999;
   }
+
+  &.no-flex {
+    display: block;
+  }
 }
 
 .to-do {
-  // margin: 50vh auto 0 auto;
   padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 500px;
   max-width: 500px;
   background-color: $white;
-  // transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   transition: .7s;
 
+  @include rwd(500px) {
+    min-width: 300px;
+  }
+
   &.active {
-    margin-top: 120px;
-    transform: none;
+    top: 20%;
+    transform: translate(-50%, 0);
+
+    @include rwd(500px) {
+      top: 15%;
+    }
   }
 
   &__add-tasks-form {
