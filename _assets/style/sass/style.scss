@@ -5,6 +5,7 @@
 
 html {
   font-size: 16px;
+  overflow: hidden;
 
   @include rwd(500px) {
     font-size: 15px;
@@ -12,8 +13,11 @@ html {
 }
 
 body {
+  @include flex();
+  height: 100vh;
   font-size: $base-font-size;
   background-color: #dbdbdb;
+  overflow: hidden;
 
   &::after {
     content: "";
@@ -29,11 +33,11 @@ body {
 }
 
 .to-do {
-  margin: 50vh auto 0 auto;
+  // margin: 50vh auto 0 auto;
   padding: 10px;
   max-width: 500px;
   background-color: $white;
-  transform: translateY(-50%);
+  // transform: translateY(-50%);
   transition: .7s;
 
   &.active {
@@ -371,10 +375,11 @@ body {
   display: inline-block;
   align-self: flex-end;
   max-width: 0;
+  height: 0;
   white-space: nowrap;
   border-radius: 2px;
   background-color: $bg-2nd-color;
-  transition: max-width .5s;
+  transition: max-width .5s, height .5s;
   overflow: hidden;
 
   @include rwd(500px) {
@@ -384,6 +389,7 @@ body {
   &.visible {
     margin: 0 5px;
     max-width: 228px;
+    height: 28px;
 
     @include rwd(500px) {
       margin-top: 9px;

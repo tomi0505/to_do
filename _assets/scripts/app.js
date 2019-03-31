@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
+      e.preventDefault();
       setTaskContent();
     }
   }, false);
