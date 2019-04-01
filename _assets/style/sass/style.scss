@@ -383,6 +383,10 @@ body {
     display: none;
     font-size: 1rem;
     cursor: pointer;
+
+    &.darken {
+      color: $bg-2nd-color;
+    }
   }
 }
 

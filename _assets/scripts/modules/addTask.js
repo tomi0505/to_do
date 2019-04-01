@@ -93,7 +93,9 @@ const addTask = function() {
 
   // UPDATE THE FILTERING INPUT
   // IF IS NOT EMPTY
-  filteringTasksList.call(filteringInput);
+  if(filteringInput.value.trim() !== "") {
+    filteringTasksList.call(filteringInput);
+  }
 
   // UPDATE PAGES LENGTH
   if(tasks.length % paginationData.itemsOnPage === 1) {

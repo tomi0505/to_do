@@ -1,5 +1,6 @@
 import tasks from './tasks.js';
 import { updateFilterResultsByFilterInput } from './filteringTasksList.js';
+import { darkenRemoveTaskBtn } from './../app.js';
 
 const selectedTasks = {
   selected: 0,
@@ -48,20 +49,24 @@ const selectTasks = function(e) {
       for(let checkbox of checkboxItem) {
         if(!checkbox.checked) {
           checkbox.checked = true;
+          darkenRemoveTaskBtn(checkbox);
         }
       }
     } else if(optValue === 'uncheckAll') {
       for(let checkbox of checkboxItem) {
         if(checkbox.checked) {
           checkbox.checked = false;
+          darkenRemoveTaskBtn(checkbox);
         }
       }
     } else if(optValue === 'selectReverse') {
       for(let checkbox of checkboxItem) {
         if(checkbox.checked) {
           checkbox.checked = false;
+          darkenRemoveTaskBtn(checkbox);
         } else {
           checkbox.checked = true;
+          darkenRemoveTaskBtn(checkbox);
         }
       }
     }

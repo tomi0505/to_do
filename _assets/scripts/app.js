@@ -11,6 +11,10 @@ import  sortTasks from './modules/sortingTasks.js';
 import  removeSelectedTasks from './modules/removeSelectedTasks.js';
 import  { viewResultFilteringInputTooltip } from './modules/filteringTasksList.js';
 
+const darkenRemoveTaskBtn = self => {
+  self.checked? self.parentNode.nextElementSibling.classList.add('darken') : self.parentNode.nextElementSibling.classList.remove('darken');
+}
+
 const moveToDoBox = action => {
   const toDoBox = document.querySelector('.to-do');
   if(action === "add") {
@@ -60,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if(checkboxItem) {
+      darkenRemoveTaskBtn(e.target);
       showSelectedTasksOperationPanel();
       selectedTasksLength();
       if(filteringInput.value.trim() !== "") {
@@ -109,3 +114,4 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 export default moveToDoBox;
+export { darkenRemoveTaskBtn };
