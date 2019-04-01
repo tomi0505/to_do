@@ -4,6 +4,7 @@ import { paginationData } from './paginationTasks.js';
 import increasePagesLength from './updatePagesLength.js';
 import { updatePageNumber } from './paginationTasks.js';
 import { sortOn } from './sortingTasks.js';
+import filteringTasksList from './filteringTasksList.js';
 
 let taskId = 0;
 let firstUpdatePageNumber = true;
@@ -46,6 +47,8 @@ const addTask = function() {
   const tasksContainer = document.querySelector('.tasks-container');
   const taskItem = document.createElement('li');
 
+  const filteringInput = document.querySelector('.to-do__filtering-input');
+
   let liStringTemplate;
 
   if(sortOn) {
@@ -87,6 +90,10 @@ const addTask = function() {
   }
 
   updateTasksLengthCounter();
+
+  // UPDATE THE FILTERING INPUT
+  // IF IS NOT EMPTY
+  filteringTasksList.call(filteringInput);
 
   // UPDATE PAGES LENGTH
   if(tasks.length % paginationData.itemsOnPage === 1) {

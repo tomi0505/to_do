@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  // @include flex();
   height: 100%;
   font-size: $base-font-size;
   background-color: #dbdbdb;
@@ -57,7 +56,7 @@ body {
     transform: translate(-50%, 0);
 
     @include rwd(500px) {
-      top: 15%;
+      top: 11%;
     }
   }
 
