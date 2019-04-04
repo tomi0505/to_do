@@ -50,7 +50,7 @@ const filteringTasksList = function() {
   checkedTasksObjData.uncheckedTasks.splice(0);
 
   activeArray.filter((item, index) => {
-    if(item.indexOf(this.value) !== -1) {
+    if(item.indexOf(this.value.toLowerCase()) !== -1) {
       if(checkedOrUnchecked(index)) {
         checkedTasksObjData.checkedTasks.push(item);
       } else {
