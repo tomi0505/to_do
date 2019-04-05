@@ -50,7 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
   addTaskInput.addEventListener('keyup', function(e) {
     if(e.keyCode === 13) {
       e.preventDefault();
-      setTaskContent();
+      if(this.value.trim() !== "") {
+        setTaskContent();
+      } else {
+        alert('Pole nie może być puste.\nDodaj jakiś tekst.');
+      }
     }
   }, false);
 
